@@ -1544,7 +1544,7 @@ body {
         line-height: 2.6;
     }
     .product-detail-section{
-        padding: 0px;
+        padding: 1rem;
     }
     .cart-item-image img{
         height: 175px;
