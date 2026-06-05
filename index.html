@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple - Luxury Furniture Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Decorative Flowers -->
+    <div class="flower flower-1"></div>
+    <div class="flower flower-2"></div>
+    <div class="flower flower-3"></div>
+    <div class="flower flower-4"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>SIMPLE</span>
+            </div>
+            <ul class="nav-menu">
+                <div>
+                <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="products.html" class="nav-link">Collection</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="cart.html" class="nav-link cart-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Elevate Your Living</h1>
+            <p class="hero-subtitle">Handcrafted Luxury Furniture for the Discerning Taste</p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn btn-primary">Explore Collection</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-graphic"><img src="home.jpeg"></div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Curated Selection</span>
+                <h2>Our Signature Collection</h2>
+                <p>Timeless pieces designed for those who appreciate the finest details</p>
+            </div>
+
+            <div class="featured-grid">
+                <article class="featured-card glass-effect">
+                    <div class="featured-image"><img src="modern sofa.jpeg"></div>
+                    <h3>Modern Sofa</h3>
+                    <p>Contemporary elegance meets supreme comfort</p>
+                    <span class="price">$499</span>
+                    <a href="product-detail.html?id=1" class="featured-link">View <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="featured-card glass-effect">
+                    <div class="featured-image"><img src="dining table set.jpeg"></div>
+                    <h3>Dining Table Set</h3>
+                    <p>Gather, dine, and create timeless memories</p>
+                    <span class="price">$399</span>
+                    <a href="product-detail.html?id=2" class="featured-link">View <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="featured-card glass-effect">
+                    <div class="featured-image"><img src="bedroom set .jpeg"></div>
+                    <h3>Bedroom Set</h3>
+                    <p>Your sanctuary of ultimate rest and relaxation</p>
+                    <span class="price">$799</span>
+                    <a href="product-detail.html?id=3" class="featured-link">View <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="featured-card glass-effect">
+                    <div class="featured-image"><img src="office deski.jpeg"></div>
+                    <h3>Office Desk</h3>
+                    <p>Professional workspace designed for excellence</p>
+                    <span class="price">$299</span>
+                    <a href="product-detail.html?id=4" class="featured-link">View <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Simple?</h2>
+                    <p>At Simple, we believe that luxury should be accessible. <br> Our curated collection features only the finest furniture pieces,<br> carefully selected for their craftsmanship, design, and value.</p>
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Premium Quality</h4>
+                                <p>Sustainably sourced materials with expert craftsmanship</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Timeless Design</h4>
+                                <p>Furniture that transcends trends and lasts decades</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Expert Service</h4>
+                                <p>Dedicated support and professional assembly available</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Lifetime Warranty</h4>
+                                <p>We stand behind our products with comprehensive coverage</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- <div class="about-graphic"><img src="imges/home2.jpeg"></div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+    <div class="container">
+        <div class="stat-item">
+            <h3><span class="counter" data-target="10000">0</span>+</h3>
+            <p>Happy Customers</p>
+        </div>
+        <div class="stat-item">
+            <h3><span class="counter" data-target="500">0</span>+</h3>
+            <p>Design Pieces</p>
+        </div>
+        <div class="stat-item">
+            <h3><span class="counter" data-target="50">0</span>+</h3>
+            <p>Expert Artisans</p>
+        </div>
+        <div class="stat-item">
+            <h3><span class="counter" data-target="25">0</span></h3>
+            <p>Years of Excellence</p>
+        </div>
+    </div>
+</section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Discover our complete collection of luxury furniture</p>
+            <a href="products.html" class="btn btn-primary btn-large">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Simple</h4>
+                    <p>Luxury furniture for discerning individuals who value quality, design, and sustainability.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook" class="fac"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram" class="ins"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="TikTok" class="tik"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Collection</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html">Living Room</a></li>
+                        <li><a href="products.html">Bedroom</a></li>
+                        <li><a href="products.html">Office</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get In Touch</h4>
+                    <p>Email: <a href="mailto:hello@simplefurniture.com">hello@simplefurniture.com</a></p>
+                    <p>Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p>Hours: Mon-Fri 9AM-6PM EST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Simple. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

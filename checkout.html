@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Simple</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Decorative Flowers -->
+    <div class="flower flower-1"></div>
+    <div class="flower flower-2"></div>
+    <div class="flower flower-3"></div>
+    <div class="flower flower-4"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>SIMPLE</span>
+            </div>
+            <ul class="nav-menu">
+                <div>
+                <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Collection</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="cart.html" class="nav-link cart-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Secure Checkout</h2>
+                <p>Complete your order with confidence</p>
+            </div>
+
+            <div class="checkout-layout">
+                <form id="checkout-form" class="checkout-form glass-effect">
+                    <!-- Billing Info -->
+                    <fieldset class="form-section">
+                        <legend>Billing Information</legend>
+                         <div class="form-row">
+                            <div class="form-group">
+                                <label for="email-phone">Email or mobile Phone number</label>
+                                <input type="email" id="email-phone" name="email-phone" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Email me with news and offers</label>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group">
+                                <label>Contry *</label>
+                                <input type="text" id="contry" name="contry" value="Egypt" readonly>
+                                <span class="form-error"></span>
+                            </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullname">Full Name *</label>
+                                <input type="text" id="fullname" name="fullname" required>
+                                <span class="form-error"></span>
+                            </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                                <span class="form-error"></span>
+                            </div>
+                           <div class="form-group">
+                                <label for="text">Address *</label>
+                                <input type="text" id="text" name="text" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="text">Apartment, suite, etc *</label>
+                                <input type="text" id="text" name="text" required>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipcode">Zip Code *</label>
+                                <input type="text" id="zipcode" name="zipcode" required>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+
+                    <!-- Shipping Address -->
+                    <!-- <fieldset class="form-section">
+                        <legend>Shipping Address</legend>
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" name="address" required>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State/Province *</label>
+                                <input type="text" id="state" name="state" required>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipcode">Zip Code *</label>
+                                <input type="text" id="zipcode" name="zipcode" required>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                    </fieldset> -->
+
+                    <!-- Payment Method -->
+                    <fieldset class="form-section">
+                        <legend>Payment Method</legend>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="immediate" checked required>
+                                <div class="payment-card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div>
+                                        <h4>Immediate Payment</h4>
+                                        <p>Pay securely now</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="on_receipt" required>
+                                <div class="payment-card">
+                                    <i class="fas fa-box"></i>
+                                    <div>
+                                        <h4>Pay on Receipt</h4>
+                                        <p>Pay when order arrives</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#">terms and conditions</a> *</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full btn-large">Complete Purchase</button>
+                </form>
+
+                <div class="checkout-summary glass-effect">
+                    <h3>Order Summary</h3>
+                    <div id="summary-items" class="summary-items-list">
+                        <!-- Items loaded by JavaScript -->
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="shipping">$50.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">$50.00</span>
+                        </div>
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure 256-bit SSL encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Simple</h4>
+                    <p>Luxury furniture for discerning individuals who value quality, design, and sustainability.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook" class="fac"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram" class="ins"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="TikTok" class="tik"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Collection</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html">Living Room</a></li>
+                        <li><a href="products.html">Bedroom</a></li>
+                        <li><a href="products.html">Office</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Get In Touch</h4>
+                    <p>Email: <a href="mailto:hello@simplefurniture.com">hello@simplefurniture.com</a></p>
+                    <p>Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p>Hours: Mon-Fri 9AM-6PM EST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Simple. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

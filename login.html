@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login – Simple</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-outer:   #edefdd;
+      --bg-left:    #f8f7e8;
+      --bg-right:   #ffffff;
+      --accent:     #b4b34e;
+      --accent-hover: #8a894e;
+      --text-dark:  #3e401e;
+      --text-mid:   #7f805a;
+      --text-light: #bdbe9b;
+      --border:     #e8e9d8;
+      --input-bg:   #f9fafc;
+      --circle1:    rgba(157, 164, 98, 0.13);
+      --circle2:    rgba(154, 164, 98, 0.09);
+      --shadow:     0 24px 64px rgba(30,35,64,.12);
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-outer);
+      font-family: 'Nunito', sans-serif;
+      padding: 24px;
+    }
+
+    /* ── Card ── */
+    .card {
+      display: flex;
+      width: 100%;
+      max-width: 900px;
+      min-height: 560px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: fadeUp .55s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Left panel ── */
+    .panel-left {
+      flex: 0 0 42%;
+      background: var(--bg-left);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .deco-circle-1 {
+      width: 220px; height: 220px;
+      background: var(--circle1);
+      top: -60px; right: -60px;
+    }
+    .deco-circle-2 {
+      width: 160px; height: 160px;
+      background: var(--circle2);
+      top: 30px; right: 30px;
+    }
+    .deco-circle-3 {
+      width: 130px; height: 130px;
+      background: var(--circle1);
+      bottom: 30px; left: -40px;
+    }
+
+    .welcome-text {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 36px;
+    }
+    .welcome-text h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .welcome-text p {
+      font-size: .95rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* Illustration */
+    .illustration {
+      width: 88%;
+      max-width: 280px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* SVG illustration pieces */
+    .scene {
+      width: 100%;
+    }
+
+    /* ── Right panel ── */
+    .panel-right {
+      flex: 1;
+      background: var(--bg-right);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 52px 40px;
+    }
+
+    .lock-icon {
+      width: 52px; height: 52px;
+      background: #f8f8ee;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .lock-icon svg { width: 24px; height: 24px; }
+
+    .panel-right h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .panel-right .subtitle {
+      font-size: .9rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    /* Form */
+    .form { width: 100%; }
+
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 7px;
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-wrap svg.icon-left {
+      position: absolute;
+      left: 14px;
+      width: 17px; height: 17px;
+      color: var(--text-light);
+      pointer-events: none;
+    }
+    .input-wrap input {
+      width: 100%;
+      padding: 12px 42px 12px 40px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--input-bg);
+      font-family: 'Nunito', sans-serif;
+      font-size: .92rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .input-wrap input::placeholder { color: var(--text-light); }
+    .input-wrap input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(157, 164, 98, 0.15);
+      background: #fff;
+    }
+    .btn-eye {
+      position: absolute;
+      right: 13px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      display: flex; align-items: center;
+      transition: color .2s;
+    }
+    .btn-eye:hover { color: var(--accent); }
+    .btn-eye svg { width: 18px; height: 18px; }
+
+    /* Remember + Forgot */
+    .row-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .85rem;
+      color: var(--text-mid);
+      cursor: pointer;
+    }
+    .remember input[type="checkbox"] {
+      width: 15px; height: 15px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .forgot {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .forgot:hover { color: var(--accent-hover); }
+
+    /* Login button */
+    .btn-login {
+      width: 100%;
+      padding: 13px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(160, 164, 98, 0.35);
+    }
+    .btn-login:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 20px rgba(160, 164, 98, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-login:active { transform: translateY(0); }
+    .btn-login svg { width: 18px; height: 18px; }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      color: var(--text-light);
+      font-size: .82rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Social buttons */
+    .social-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .btn-social {
+      flex: 1;
+      padding: 11px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
+    }
+    .btn-social:hover {
+      border-color: var(--accent);
+      box-shadow: 0 3px 10px rgba(154, 164, 98, 0.15);
+      transform: translateY(-1px);
+    }
+    .btn-social svg { width: 18px; height: 18px; }
+
+    .signup-row {
+      font-size: .88rem;
+      color: var(--text-light);
+    }
+    .signup-row a {
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .signup-row a:hover { color: var(--accent-hover); }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      background: #f4f6fb;
+      font-size: .78rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Outer footer below card */
+    .page-footer {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      margin-top: 12px;
+      font-size: .78rem;
+      color: #babe9b;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .panel-left { display: none; }
+      .panel-right { padding: 40px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div style="width:100%;max-width:900px;">
+    <div class="card">
+
+      <!-- LEFT PANEL -->
+      <div class="panel-left">
+        <div class="deco-circle deco-circle-1"></div>
+        <div class="deco-circle deco-circle-2"></div>
+        <div class="deco-circle deco-circle-3"></div>
+
+        <div class="welcome-text">
+          <h1>Welcome</h1>
+          <p>Please login to your account<br>and continue.</p>
+        </div>
+
+        <!-- SVG Illustration -->
+        <div class="illustration">
+          <svg class="scene" viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Floor line -->
+            <line x1="20" y1="172" x2="260" y2="172" stroke="#c2cae0" stroke-width="1.5" stroke-linecap="round"/>
+
+            <!-- Bookshelf / cabinet background -->
+            <rect x="190" y="90" width="50" height="82" rx="4" fill="#d4daf0"/>
+            <rect x="195" y="96" width="18" height="32" rx="2" fill="#bec6e0"/>
+            <rect x="217" y="96" width="18" height="32" rx="2" fill="#c8cfea"/>
+            <rect x="195" y="133" width="18" height="34" rx="2" fill="#c8cfea"/>
+            <rect x="217" y="133" width="18" height="34" rx="2" fill="#bec6e0"/>
+
+            <!-- Laptop body -->
+            <rect x="80" y="100" width="120" height="72" rx="6" fill="#2d3561"/>
+            <!-- Screen bezel -->
+            <rect x="86" y="106" width="108" height="58" rx="3" fill="#1a2040"/>
+            <!-- Screen content -->
+            <rect x="92" y="112" width="96" height="46" rx="2" fill="#3d4a7a"/>
+            <!-- Avatar circle on screen -->
+            <circle cx="140" cy="129" r="12" fill="#6272a4"/>
+            <circle cx="140" cy="124" r="5" fill="#8fa0cc"/>
+            <ellipse cx="140" cy="136" rx="8" ry="5" fill="#8fa0cc"/>
+            <!-- Login bar on screen -->
+            <rect x="112" y="148" width="56" height="6" rx="3" fill="#6272a4"/>
+
+            <!-- Laptop base/keyboard -->
+            <rect x="72" y="172" width="136" height="6" rx="3" fill="#3a4268"/>
+            <rect x="90" y="172" width="100" height="3" rx="1.5" fill="#2d3561"/>
+
+            <!-- Coffee mug -->
+            <rect x="212" y="147" width="26" height="25" rx="4" fill="#5a6380"/>
+            <path d="M238 154 Q248 154 248 161 Q248 168 238 168" stroke="#4a5270" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Mug top highlight -->
+            <ellipse cx="225" cy="147" rx="13" ry="3" fill="#6a7490"/>
+            <!-- Steam -->
+            <path d="M221 140 Q223 134 221 128" stroke="#b0b8d0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M226 138 Q228 132 226 126" stroke="#b0b8d0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+            <!-- Plant pot -->
+            <rect x="42" y="148" width="32" height="24" rx="3" fill="#3a4268"/>
+            <!-- Pot rim -->
+            <rect x="38" y="145" width="40" height="7" rx="3" fill="#4a5280"/>
+            <!-- Soil -->
+            <ellipse cx="58" cy="148" rx="16" ry="3" fill="#2d3561"/>
+            <!-- Stem -->
+            <line x1="58" y1="148" x2="58" y2="90" stroke="#5a7a50" stroke-width="3" stroke-linecap="round"/>
+            <!-- Leaves -->
+            <ellipse cx="44" cy="120" rx="16" ry="8" fill="#6a9a60" transform="rotate(-30 44 120)"/>
+            <ellipse cx="72" cy="108" rx="16" ry="8" fill="#7aaa70" transform="rotate(25 72 108)"/>
+            <ellipse cx="40" cy="100" rx="14" ry="7" fill="#6a9a60" transform="rotate(-20 40 100)"/>
+            <ellipse cx="74" cy="130" rx="13" ry="7" fill="#7aaa70" transform="rotate(35 74 130)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="panel-right">
+
+        <div class="lock-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6272a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="11" width="14" height="11" rx="2"/>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            <circle cx="12" cy="16" r="1" fill="#6272a4"/>
+          </svg>
+        </div>
+
+        <h2>Login</h2>
+        <p class="subtitle">Login to access your account</p>
+
+        <div class="form">
+
+          <!-- Email field -->
+          <div class="field">
+            <label for="email">Email OR Username</label>
+            <div class="input-wrap">
+              <svg class="icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <polyline points="2,4 12,13 22,4"/>
+              </svg>
+              <input type="text" id="email" placeholder="Email OR Username" autocomplete="username"/>
+            </div>
+          </div>
+
+          <!-- Password field -->
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <svg class="icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="11" width="14" height="11" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+              </svg>
+              <input type="password" id="password" placeholder="Password" autocomplete="current-password"/>
+              <button class="btn-eye" type="button" onclick="togglePassword()" title="Show/Hide password">
+                <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember + Forgot -->
+          <div class="row-extra">
+            <label class="remember">
+              <input type="checkbox" id="remember"/>
+              Remember me
+            </label>
+            <a href="#" class="forgot">Forgot Password?</a>
+          </div>
+
+          <!-- Login button -->
+          <button class="btn-login" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+              <polyline points="10 17 15 12 10 7"/>
+              <line x1="15" y1="12" x2="3" y2="12"/>
+            </svg>
+            Login
+          </button>
+
+          <!-- Divider -->
+          <div class="divider">or</div>
+
+          <!-- Social -->
+          <div class="social-row">
+            <button class="btn-social" type="button">
+              <!-- Google G -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Continue with Google
+            </button>
+
+            <button class="btn-social" type="button">
+              <!-- GitHub -->
+              <svg viewBox="0 0 24 24" fill="#1a2040" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+              Continue with GitHub
+            </button>
+          </div>
+
+          <div class="signup-row" style="text-align:center;">
+            Don't have an account? <a href="sign up.html">Sign up</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">© 2024 Simple. All rights reserved.</div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById('password');
+      const icon  = document.getElementById('eye-icon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+          <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>`;
+      } else {
+        input.type = 'password';
+        icon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>`;
+      }
+    }
+  </script>
+</body>
+</html>
