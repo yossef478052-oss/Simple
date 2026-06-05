@@ -34,7 +34,6 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .navbar {
@@ -489,7 +488,7 @@ body {
     gap: 1.5rem;
     margin-bottom: 3rem;
     background: var(--bg-light);
-    padding: 2rem;
+    padding: 0.8rem;
     border-radius: 15px;
 }
 
@@ -961,7 +960,6 @@ body {
 .summary-box {
     background: var(--bg-white);
     border-radius: 10px;
-    padding: 1.5rem;
 }
 
 #summary-items {
@@ -1444,7 +1442,7 @@ body {
 
     .btn {
         padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: 0.8rem;
     }
 
     .section-header h2 {
@@ -1454,10 +1452,6 @@ body {
     .featured-grid,
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-
-    .filters-bar {
-        grid-template-columns: 1fr;
     }
 
     .form-row {
@@ -1572,6 +1566,21 @@ body {
             padding: 0.6rem;
             font-size: 0.7rem;
             max-width: 145px;
+        }
+        .cart-section {
+            padding: none;
+        }
+        .cart-items-container {
+            background: var(--bg-white);
+            border: none;
+            border-radius: none;
+            padding: 0rem;
+        }
+        .checkout-section {
+            padding: 0rem;
+        }
+        .featured {
+            padding: 0rem;
         }
     }
 .product-image img {
