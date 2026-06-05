@@ -1568,6 +1568,11 @@ body {
         .hero-graphic img{
             display: none;
         }
+        .filter-group select, .filter-group input{
+            padding: 0.6rem;
+            font-size: 0.7rem;
+            max-width: 145px;
+        }
     }
 .product-image img {
     width: 100%;
